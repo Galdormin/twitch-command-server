@@ -1,36 +1,28 @@
 <script lang="ts">
-	import type { PageData } from './$types';
-
-	export let data: PageData;
 </script>
 
-<main class="p-8">
-	<h1 class="text-3xl font-semibold">Welcome {data.username}</h1>
-	<button
-		class="border rounded p-2 mt-10 mb-10 bg-gray-800 text-white hover:bg-gray-700"
-		on:click={() => (window.location.href = '/auth')}
-	>
-		Logout
-	</button>
-	<form action="?/create" method="POST">
-		<fieldset class="flex flex-col gap-2 max-w-lg p-2">
-			<input name="title" type="text" placeholder="Title" />
-			<textarea name="content" placeholder="Content" />
-			<button type="submit">Create</button>
-		</fieldset>
-	</form>
 
-	<pre>
-    {JSON.stringify(data, null, 2)}
-</pre>
+<main class="bg-main min-h-screen p-8 flex flex-col items-center justify-center">
+    <div class="w-full max-w-5xl flex flex-col md:flex-row gap-8">
+        <button class="flex-1 bg-card rounded-lg shadow-lg p-6 justify-center flex flex-col items-center" onclick={() => (window.location.href = '/ac/cards')}>
+            <h2 class="text-2xl font-semibold mb-4 text-white">Toutes les cartes Animal Crossing</h2>
+            <!-- Liste des cartes ici -->
+            <img class="self-center" src="https://picsum.photos/400/300" />
+            <div class="text-gray-300">Affiche toutes les cartes que vous pouvez obtenir.</div>
+        </button>
+        <button class="flex-1 bg-card rounded-lg shadow-lg p-6 justify-center flex flex-col items-center" onclick={() => (window.location.href = '/ac/my_cards')}>
+            <h2 class="text-2xl font-semibold mb-4 text-white">Mes cartes Animal Crossing</h2>
+            <!-- Liste des cartes obtenues ici -->
+            <img class="self-center" src="https://picsum.photos/400/300" />
+            <div class="text-gray-300">Affiche l'ensemble des cartes que vous avez obtenues.</div>
+        </button>
+    </div>
+    <slot />
 </main>
 
+
 <style>
-	input,
-	textarea {
-		@apply border rounded p-2 bg-gray-100;
-	}
-	button {
-		@apply border rounded p-2 bg-gray-800 text-white;
-	}
+    button {
+        @apply text-white px-4 py-2 rounded;
+    }
 </style>
