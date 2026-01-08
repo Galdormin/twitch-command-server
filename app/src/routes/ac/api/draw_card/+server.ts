@@ -5,9 +5,9 @@ import { Card } from '$lib/ac/types';
 import { getAdminPocketBase } from '$lib/pocketbase_utils';
 
 
-export const GET: RequestHandler = async({ request, url }) => {
+export const GET: RequestHandler = async ({ request, url }) => {
     const authHeader = request.headers.get('authorization');
-    
+
     if (!authHeader) {
         return new Response(JSON.stringify({ error: 'Missing token' }), { status: 401 });
     }
@@ -39,13 +39,13 @@ export const GET: RequestHandler = async({ request, url }) => {
 
 async function drawCardForUser(cards: Card[], twitch_id: number, streamer: User): Promise<void> {
     const pb = await getAdminPocketBase();
-    
+
     const cardIds = cards.map(card => card.id);
     const filter = cardIds.map(id => `card_id = "${id}"`).join(' || ');
     const card_records = await pb.collection('ac_cards').getFullList({ filter });
 
     await pb.collection('ac_user_cards').create({
-        twitch_id: twitch_id,
+        twitchId: twitch_id,
         streamer: streamer.id,
         cards: card_records.map(record => record.id),
     });
