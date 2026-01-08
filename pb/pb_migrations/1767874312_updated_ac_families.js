@@ -1,23 +1,21 @@
 /// <reference path="../pb_data/types.d.ts" />
 migrate((app) => {
-  const collection = app.findCollectionByNameOrId("_pb_users_auth_")
+  const collection = app.findCollectionByNameOrId("pbc_1634339345")
 
   // update collection data
   unmarshal({
-    "oauth2": {
-      "enabled": true
-    }
+    "listRule": "",
+    "viewRule": ""
   }, collection)
 
   return app.save(collection)
 }, (app) => {
-  const collection = app.findCollectionByNameOrId("_pb_users_auth_")
+  const collection = app.findCollectionByNameOrId("pbc_1634339345")
 
   // update collection data
   unmarshal({
-    "oauth2": {
-      "enabled": false
-    }
+    "listRule": null,
+    "viewRule": null
   }, collection)
 
   return app.save(collection)

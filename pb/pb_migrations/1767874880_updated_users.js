@@ -2,37 +2,45 @@
 migrate((app) => {
   const collection = app.findCollectionByNameOrId("_pb_users_auth_")
 
-  // update field
-  collection.fields.addAt(7, new Field({
+  // remove field
+  collection.fields.removeById("number2803819388")
+
+  // add field
+  collection.fields.addAt(9, new Field({
+    "autogeneratePattern": "",
     "hidden": false,
-    "id": "number3662583372",
-    "max": null,
-    "min": null,
-    "name": "twitchId",
-    "onlyInt": false,
+    "id": "text2803819388",
+    "max": 0,
+    "min": 0,
+    "name": "twitchName",
+    "pattern": "",
     "presentable": false,
+    "primaryKey": false,
     "required": false,
     "system": false,
-    "type": "number"
+    "type": "text"
   }))
 
   return app.save(collection)
 }, (app) => {
   const collection = app.findCollectionByNameOrId("_pb_users_auth_")
 
-  // update field
-  collection.fields.addAt(7, new Field({
+  // add field
+  collection.fields.addAt(8, new Field({
     "hidden": false,
-    "id": "number3662583372",
+    "id": "number2803819388",
     "max": null,
     "min": null,
-    "name": "twitch_id",
+    "name": "twitchName",
     "onlyInt": false,
     "presentable": false,
     "required": false,
     "system": false,
     "type": "number"
   }))
+
+  // remove field
+  collection.fields.removeById("text2803819388")
 
   return app.save(collection)
 })
