@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+:root {
+  --color-bg-main: #181c1f;
+  --color-bg-nav: #23272b;
+  --color-bg-button: #A3D1C6;
+  --color-bg-button-hover: #B3D8A8;
+  --color-text: #ffffff;
+}
+
+.bg-main {
+  background-color: var(--color-bg-main);
+}
+
+.bg-nav {
+  background-color: var(--color-bg-nav);
+}
+
+.bg-card {
+  background-color: #2c3136;
+}
+
+.twitch-color {
+  background-color: #6441A5 !important;
+}
+
+.twitch-color:hover {
+  background-color: #43247c !important;
+}

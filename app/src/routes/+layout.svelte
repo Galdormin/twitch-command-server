@@ -1,9 +1,17 @@
 <script lang="ts">
-	import './layout.css';
-	import favicon from '$lib/assets/favicon.svg';
+	import '../app.css';
+	import type { PageData } from './$types';
 
-	let { children } = $props();
+	export let data: PageData;
+	$: ({ user, route } = data);
 </script>
 
-<svelte:head><link rel="icon" href={favicon} /></svelte:head>
-{@render children()}
+<main class="bg-main min-h-screen">
+	<slot />
+</main>
+
+<style>
+	button {
+		@apply text-white px-4 py-2 rounded;
+	}
+</style>
