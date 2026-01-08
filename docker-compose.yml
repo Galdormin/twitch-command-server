@@ -1,0 +1,23 @@
+services:
+  app:
+    container_name: twitch-command-app
+    working_dir: /app
+    build:
+      context: ./app
+      target: dev
+    volumes:
+      - ./app/src:/app/src
+      - ./app/.svelte-kit:/app/.svelte-kit
+    ports:
+      - 3000:3000
+
+  pb:
+    container_name: twich-command-pocketbase
+    working_dir: /pb
+    build:
+      context: ./pb
+    volumes:
+      - ./pb/pb_data:/pb/pb_data
+      - ./pb/pb_migrations:/pb/pb_migrations
+    ports:
+      - 8080:8080
