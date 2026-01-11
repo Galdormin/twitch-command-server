@@ -29,7 +29,7 @@ export const GET: RequestHandler = async ({ request, url }) => {
             await drawCardForUser(cards, twitchId, streamer);
         }
 
-        return new Response(JSON.stringify(cards), { status: 200 });
+        return new Response(JSON.stringify({ cards: cards }), { status: 200 });
     } catch (err) {
         console.error('Error:', err);
         return new Response(JSON.stringify({ error: 'Server error' }), { status: 500 });

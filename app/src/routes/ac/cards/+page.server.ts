@@ -6,6 +6,8 @@ export const load: PageServerLoad = async ({ locals }) => {
         const families = await locals.pb.collection('ac_families').getFullList();
         const cards = await getAllCards();
 
+        console.log(locals.user);
+
         return {
             user: locals.user,
             cards: cards,

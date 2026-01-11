@@ -3,8 +3,6 @@
 
 	export let data: PageData;
 	$: ({ user, cards, user_cards } = data);
-
-	console.log('Test', user_cards, cards);
 </script>
 
 <div

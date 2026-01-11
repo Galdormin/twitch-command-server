@@ -6,7 +6,7 @@ export const load: PageServerLoad = async ({ locals }) => {
     try {
         const cardMap = await getCardIdMap()
         const drawCards = await locals.pb.collection('ac_user_cards').getFullList({
-            filter: `twitch_id = ${locals.user.twitch_id}`
+            filter: `twitchId = ${locals.user.twitch_id}`
         });
 
         const allCards = await getAllCards();
@@ -17,8 +17,6 @@ export const load: PageServerLoad = async ({ locals }) => {
                 userCards.set(cardId, (userCards.get(cardId) || 0) + 1);
             }
         }
-
-        console.log(userCards);
 
         return {
             user: locals.user,
