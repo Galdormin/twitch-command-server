@@ -1,0 +1,20 @@
+{
+  "name": "card_uploader",
+  "version": "1.0.0",
+  "description": "",
+  "main": "upload.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "formdata-node": "^6.0.3",
+    "node-fetch": "^3.3.2",
+    "papaparse": "^5.5.3",
+    "pocketbase": "^0.26.6"
+  }
+}
