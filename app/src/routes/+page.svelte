@@ -153,7 +153,7 @@
 				</div>
 
 				<div class="text-center text-gray-500 text-sm">
-					<p>© 2025 Galdormin - Propulsé par SvelteKit</p>
+					<p>© 2025 Galdormin & Paraguus - Propulsé par SvelteKit</p>
 				</div>
 			</div>
 		</div>
